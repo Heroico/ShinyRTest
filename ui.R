@@ -1,5 +1,3 @@
-library(shiny)
-
 dt <- read.csv("data/results.csv")
 
 shinyUI(fluidPage(
