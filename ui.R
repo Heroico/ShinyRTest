@@ -7,16 +7,14 @@ shinyUI(fluidPage(
     # Create a new Row in the UI for selectInputs
     fluidRow(
       column(4,
-          selectInput("gene_id",
+          textInput("gene_id",
                       "Gene ID:",
-                      c("All",
-                        unique(as.character(dt$gene))))
+                      "")
       ),
       column(4,
-          selectInput("gene_name",
+          textInput("gene_name",
                       "Gene Name:",
-                      c("All",
-                        unique(as.character(dt$gene_name))))
+                      "")
       ),
       column(4,
           numericInput("threshold",

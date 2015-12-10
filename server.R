@@ -7,11 +7,11 @@ shinyServer(function(input, output) {
     data <- read.csv("data/results.csv")
     data$p = 2*pnorm(-abs(data$zscore))
     data <- data[order(data$p),]
-    if (input$gene_id != "All"){
-      data <- data[data$gene == input$gene_id,]
+    if (nchar(input$gene_id) > 0){
+      data <- data[grepl(input$gene_id, data$gene),]
     }
-    if (input$gene_name != "All"){
-      data <- data[data$gene_name == input$gene_name,]
+    if (nchar(input$gene_name) > 0){
+      data <- data[grepl(input$gene_name,data$gene_name),]
     }
     t = 0.05
     if (input$threshold > 0) {
