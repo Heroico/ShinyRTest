@@ -17,6 +17,11 @@ shinyUI(fluidPage(
                       "Gene Name:",
                       c("All",
                         unique(as.character(dt$gene_name))))
+      ),
+      column(4,
+          numericInput("threshold",
+                      "Pvalue threshold:",
+                      0.05)
       )
     ),
     # Create a new row for the table.

@@ -13,6 +13,11 @@ shinyServer(function(input, output) {
     if (input$gene_name != "All"){
       data <- data[data$gene_name == input$gene_name,]
     }
+    t = 0.05
+    if (input$threshold > 0) {
+      t = input$threshold
+    }
+    data <- data[data$p < t,]
     data
   })
 })
